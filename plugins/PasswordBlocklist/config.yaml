@@ -1,0 +1,19 @@
+name: PasswordBlocklist
+version: 0.1.0
+description: 禁止パスワードを設定します。
+plugin_link: https://github.com/masiuchi/mt-plugin-passowrd-blocklist
+
+author_name: Masahiro Iuchi
+author_link: https://github.com/masiuchi
+
+settings:
+  password_blocklist:
+    default:
+
+system_config_template: config.tmpl
+
+applications:
+  cms:
+    callbacks:
+      cms_save_filter.author: $PasswordBlocklist::MT::Plugin::PasswordBlocklist::cb_cms_save_filter_author
+
